@@ -1,0 +1,74 @@
+{
+	"users": [
+		{
+			"id": "001",
+			"login": "anton",
+			"password": "qwerty123",
+			"registed_at": "2050-09-22",
+			"role_id": 0
+		}
+	],
+	"roles": [
+		{
+			"id": 0,
+			"name": "Администратор"
+		},
+		{
+			"id": 1,
+			"name": "Модератор"
+		},
+		{
+			"id": 2,
+			"name": "Читатель"
+		},
+		{
+			"id": 3,
+			"name": "Гость"
+		}
+	],
+	"posts": [
+		{
+			"id": "001",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "002",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "003",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "004",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "005",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "006",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		}
+	],
+	"commets": []
+}
