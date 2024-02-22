@@ -34,16 +34,16 @@ export const server = {
 		};
 	},
 	async register(regLogin, regPassword) {
-		const user = getUser(regLogin);
+		const existedUser = await getUser(regLogin);
 
-		if (user) {
+		if (existedUser) {
 			return {
 				error: 'Такое имя пользователя уже занято',
 				res: null
 			};
 		}
 
-		addUser(regLogin, regPassword);
+		const user = await addUser(regLogin, regPassword);
 
 		return {
 			error: null,
