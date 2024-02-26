@@ -52,8 +52,8 @@ const AuthorizatoinContainer = ({ className }) => {
 		formState: { errors }
 	} = useForm({
 		defaultValues: {
-			login: '',
-			password: ''
+			login: 'anton',
+			password: 'qwerty123'
 		},
 		resolver: yupResolver(authFormShema)
 	});

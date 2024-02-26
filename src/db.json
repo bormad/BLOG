@@ -1,102 +1,95 @@
 {
-  "users": [
-    {
-      "id": "001",
-      "login": "anton",
-      "password": "qwerty123",
-      "registed_at": "2050-09-22",
-      "role_id": 0
-    },
-    {
-      "id": "002",
-      "login": "vova",
-      "password": "123456",
-      "registed_at": "2050-09-22",
-      "role_id": 0
-    },
-    {
-      "id": "71f7",
-      "login": "vladimirtaraban",
-      "password": "123456",
-      "registed_at": "2050-10-17 05:41",
-      "role_id": 2
-    },
-    {
-      "id": "817a",
-      "login": "vova2",
-      "password": "123456",
-      "registed_at": "2061-06-14 19:48",
-      "role_id": 2
-    },
-    {
-      "id": "9948",
-      "login": "vladimirtaran12",
-      "password": "123456",
-      "registed_at": "2062-09-26 18:43",
-      "role_id": 2
-    }
-  ],
-  "roles": [
-    {
-      "id": 0,
-      "name": "Администратор"
-    },
-    {
-      "id": 1,
-      "name": "Модератор"
-    },
-    {
-      "id": 2,
-      "name": "Читатель"
-    },
-    {
-      "id": 3,
-      "name": "Гость"
-    }
-  ],
-  "posts": [
-    {
-      "id": "001",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    },
-    {
-      "id": "002",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    },
-    {
-      "id": "003",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    },
-    {
-      "id": "004",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    },
-    {
-      "id": "005",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    },
-    {
-      "id": "006",
-      "title": "Lorem",
-      "image_url": "https://via.placeholder.com/280x150",
-      "content": "Какой-то текст статьи",
-      "published_at": "2045-06-21"
-    }
-  ],
-  "commets": []
+	"users": [
+		{
+			"id": "001",
+			"login": "anton",
+			"password": "qwerty123",
+			"registed_at": "2050-09-22",
+			"role_id": 0
+		},
+		{
+			"id": "002",
+			"login": "vova",
+			"password": "123456",
+			"registed_at": "2050-09-22",
+			"role_id": 1
+		},
+		{
+			"id": "003",
+			"login": "vova1",
+			"password": "123456",
+			"registed_at": "2050-09-22",
+			"role_id": 2
+		},
+		{
+			"id": "004",
+			"login": "michael",
+			"password": "pass123",
+			"registed_at": "2051-09-25",
+			"role_id": 2
+		}
+	],
+	"roles": [
+		{
+			"id": "0",
+			"name": "Администратор"
+		},
+		{
+			"id": "1",
+			"name": "Модератор"
+		},
+		{
+			"id": "2",
+			"name": "Читатель"
+		},
+		{
+			"id": "3",
+			"name": "Гость"
+		}
+	],
+	"posts": [
+		{
+			"id": "001",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "002",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "003",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "004",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "005",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		},
+		{
+			"id": "006",
+			"title": "Lorem",
+			"image_url": "https://via.placeholder.com/280x150",
+			"content": "Какой-то текст статьи",
+			"published_at": "2045-06-21"
+		}
+	],
+	"commets": []
 }
