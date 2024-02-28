@@ -12,8 +12,8 @@ const reducer = combineReducers({
 	app: appReducer,
 	user: userReducer,
 	users: usersReducer,
-	posts: postReducer,
-	post: postsReducer
+	posts: postsReducer,
+	post: postReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

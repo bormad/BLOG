@@ -12,7 +12,6 @@ const UsersContainer = ({ className }) => {
 	const requestServer = useServerRequest();
 
 	React.useEffect(() => {
-		console.log('effect');
 		Promise.all([
 			requestServer('fetchUsers'),
 			requestServer('fetchRoles')
