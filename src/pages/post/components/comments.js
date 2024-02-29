@@ -42,6 +42,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 					<Comment
 						id={id}
 						key={id}
+						postId={postId}
 						author={author}
 						content={content}
 						publishedAt={published_at}

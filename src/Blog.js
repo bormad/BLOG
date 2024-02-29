@@ -1,17 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import { styled } from 'styled-components';
-import { Header, Footer } from './components';
+import { Header, Footer, Modal } from './components';
 import { Authorizatoin, Post, Registration, Users } from './pages';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from './actions';
 
 const AppColumn = styled.div`
+	margin: 0;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 1000px;
-	min-height: 100%;
+	height: 100%;
+
 	margin: 0 auto;
 	background-color: #fff;
 `;
@@ -40,6 +43,7 @@ export const Blog = () => {
 	return (
 		<AppColumn>
 			<Header />
+
 			<Page>
 				<Routes>
 					<Route path='/' element={<div>Главная страница</div>} />
@@ -51,6 +55,7 @@ export const Blog = () => {
 					<Route path='*' element={<div>Ошибка</div>} />
 				</Routes>
 			</Page>
+			<Modal />
 			<Footer />
 		</AppColumn>
 	);
