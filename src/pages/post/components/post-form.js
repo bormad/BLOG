@@ -30,7 +30,7 @@ const PostFormContainer = ({ className, post }) => {
 				title: newTitle,
 				content: newContent
 			})
-		).then(() => navigate(`/post/${id}`));
+		).then(({ id }) => navigate(`/post/${id}`));
 	};
 
 	return (
@@ -42,6 +42,7 @@ const PostFormContainer = ({ className, post }) => {
 			/>
 			<Input ref={titleRef} defaultValue={title} placeholder='Заголовок...' />
 			<SpecialPanel
+				id={id}
 				publishedAt={publishedAt}
 				margin={'15px 0'}
 				editBnt={<Icon size='20px' id='fa-floppy-o' onClick={onSave} />}
@@ -61,5 +62,7 @@ const PostFormContainer = ({ className, post }) => {
 export const PostForm = styled(PostFormContainer)`
 	& .post-text {
 		white-space: pre-line;
+		min-height: 80px;
+		border: 1px solid #000;
 	}
 `;

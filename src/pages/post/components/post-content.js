@@ -12,6 +12,7 @@ const PostContentContainer = ({ className, post }) => {
 			<img src={imageUrl} alt={title} />
 			<H2>{title}</H2>
 			<SpecialPanel
+				id={id}
 				publishedAt={publishedAt}
 				margin={'-20px 0 20px 0'}
 				editBnt={

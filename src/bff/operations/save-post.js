@@ -1,3 +1,4 @@
+import { addPost } from '../api/add-post';
 import { updatePost } from '../api/update-post';
 import { ROLE } from '../constants/role';
 import { sessions } from '../sessions';
@@ -5,7 +6,6 @@ import { sessions } from '../sessions';
 export const savePost = async (hash, newPostData) => {
 	const accessRoles = [ROLE.ADMIN];
 
-	console.log('savePost');
 	const access = await sessions.access(hash, accessRoles);
 	if (!access) {
 		return {
@@ -13,11 +13,13 @@ export const savePost = async (hash, newPostData) => {
 			res: null
 		};
 	}
-
-	const updatedPost = await updatePost(newPostData);
-
+	console.log(newPostData);
+	const savedPost =
+		newPostData.postId === ''
+			? await addPost(newPostData)
+			: await updatePost(newPostData);
 	return {
 		error: null,
-		res: updatedPost
+		res: savedPost
 	};
 };
