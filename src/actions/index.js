@@ -6,3 +6,4 @@ export * from './set-post-data';
 export * from './add-comment-async';
 export * from './open-modal';
 export * from './close-modal';
+export * from './save-post-async';

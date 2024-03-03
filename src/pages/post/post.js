@@ -1,17 +1,18 @@
 import React from 'react';
-import { H2 } from '../../components';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPost } from '../../selectors';
 import { PostContent, Comments } from './components/index';
-import { useParams } from 'react-router-dom';
+import { useMatch, useParams } from 'react-router-dom';
 import { useServerRequest } from '../../hooks';
 import { loadPost } from '../../actions/load-post';
+import { PostForm } from './components/post-form';
 
 const PostContainer = ({ className }) => {
 	const post = useSelector(selectPost);
 	const dispatch = useDispatch();
 	const params = useParams();
+	const isEditing = useMatch('/post/:id/edit');
 	const requestServer = useServerRequest();
 
 	React.useEffect(() => {
@@ -19,10 +20,14 @@ const PostContainer = ({ className }) => {
 	}, [params.id, requestServer, dispatch]);
 	return (
 		<div className={className}>
-			<PostContent post={post} />
-			<Comments comments={post.comments} postId={post.id} />
-			<H2>Пользователи</H2>
-			<div></div>
+			{isEditing ? (
+				<PostForm post={post} />
+			) : (
+				<>
+					<PostContent post={post} />
+					<Comments comments={post.comments} postId={post.id} />
+				</>
+			)}
 		</div>
 	);
 };

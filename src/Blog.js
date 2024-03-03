@@ -13,7 +13,7 @@ const AppColumn = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	width: 1000px;
-	height: 100%;
+	min-height: 100%;
 
 	margin: 0 auto;
 	background-color: #fff;
@@ -52,9 +52,11 @@ export const Blog = () => {
 					<Route path='/users' element={<Users />} />
 					<Route path='/post' element={<div>Новая статья</div>} />
 					<Route path='/post/:id' element={<Post />} />
+					<Route path='/post/:id/edit' element={<Post />} />
 					<Route path='*' element={<div>Ошибка</div>} />
 				</Routes>
 			</Page>
+
 			<Modal />
 			<Footer />
 		</AppColumn>

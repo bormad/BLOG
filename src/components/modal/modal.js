@@ -20,16 +20,17 @@ const ModalContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-			<div className='owerlay'></div>
-			<div className='box'>
-				<h3>{text}</h3>
-				<div className='buttons'>
-					<Button width='120px' onClick={onConfirm}>
-						Да
-					</Button>
-					<Button width='120px' onClick={onCancel}>
-						Отмена
-					</Button>
+			<div className='owerlay'>
+				<div className='box'>
+					<h3>{text}</h3>
+					<div className='buttons'>
+						<Button width='120px' onClick={onConfirm}>
+							Да
+						</Button>
+						<Button width='120px' onClick={onCancel}>
+							Отмена
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -37,18 +38,16 @@ const ModalContainer = ({ className }) => {
 };
 
 export const Modal = styled(ModalContainer)`
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 30;
-
 	& .owerlay {
-		position: absolute;
-		background-color: rgba(0, 0, 0, 0.7);
+		position: fixed;
 		width: 100%;
 		min-height: 100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 40;
 	}
 
 	& .box {
