@@ -13,7 +13,6 @@ export const savePost = async (hash, newPostData) => {
 			res: null
 		};
 	}
-	console.log(newPostData);
 	const savedPost =
 		newPostData.postId === ''
 			? await addPost(newPostData)

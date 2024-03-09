@@ -1,4 +1,7 @@
-export const getComments = (postId) =>
-	fetch(`http://localhost:3005/comments/?post_id=${postId}`).then(
-		(loadedComments) => loadedComments.json()
-	);
+export const getComments = (postId) => {
+	const url =
+		postId === undefined
+			? 'http://localhost:3005/comments'
+			: `http://localhost:3005/comments/?post_id=${postId}`;
+	return fetch(url).then((loadedComments) => loadedComments.json());
+};

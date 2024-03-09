@@ -26,7 +26,7 @@
       "login": "michael",
       "password": "pass123",
       "registed_at": "2051-09-25",
-      "role_id": 2
+      "role_id": 0
     }
   ],
   "roles": [
@@ -103,6 +103,20 @@
       "published_at": "2040-10-30 22:54",
       "title": "123321123321",
       "content": "321123321123"
+    },
+    {
+      "id": "f3fc",
+      "image_url": "https://via.placeholder.com/280x150",
+      "published_at": "2041-06-02 21:37",
+      "title": "Тестовая статья",
+      "content": "валповалдподвлаповалдоп"
+    },
+    {
+      "id": "e426",
+      "image_url": "https://via.placeholder.com/280x150",
+      "published_at": "2034-05-11 22:35",
+      "title": "Тестовая статья номер 10 ",
+      "content": "Эта статья не должна отображаться"
     }
   ],
   "comments": [
@@ -126,6 +140,34 @@
       "post_id": "9135",
       "published_at": "2044-07-16 16:58",
       "content": "321213"
+    },
+    {
+      "id": "705c",
+      "author_id": "001",
+      "post_id": "003",
+      "published_at": "2056-03-18 10:45",
+      "content": "321123"
+    },
+    {
+      "id": "3974",
+      "author_id": "001",
+      "post_id": "003",
+      "published_at": "2060-10-26 01:42",
+      "content": "32121321312312"
+    },
+    {
+      "id": "6a9a",
+      "author_id": "001",
+      "post_id": "003",
+      "published_at": "2047-12-19 03:51",
+      "content": "321321321"
+    },
+    {
+      "id": "8425",
+      "author_id": "001",
+      "post_id": "003",
+      "published_at": "2038-02-16 04:40",
+      "content": "3213213"
     }
   ],
   "sessions": [
@@ -187,6 +229,17 @@
     {
       "id": "fbbe",
       "hash": "0.49802210955754455667943148000631481409072875976563",
+      "user": {
+        "id": "001",
+        "login": "anton",
+        "registedAt": "2050-09-22",
+        "roleId": 0,
+        "password": "qwerty123"
+      }
+    },
+    {
+      "id": "706d",
+      "hash": "0.34127787266119891107507555716438218951225280761719",
       "user": {
         "id": "001",
         "login": "anton",
