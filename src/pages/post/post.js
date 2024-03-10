@@ -9,8 +9,12 @@ import { loadPost } from '../../actions/load-post';
 import { PostForm } from './components/post-form';
 import { RESET_POST_DATA } from '../../actions';
 import { initialPostState } from '../../reducers/post-reducer';
+import { Content } from '../../components';
+import { ROLE } from '../../bff/constants/role';
 
 const PostContainer = ({ className }) => {
+	const [error, setError] = React.useState(null);
+	const [isLoading, setIsLoading] = React.useState(true);
 	const post = useSelector(selectPost);
 	const dispatch = useDispatch();
 	const params = useParams();
@@ -24,14 +28,31 @@ const PostContainer = ({ className }) => {
 	}, [dispatch, isCreating]);
 
 	React.useEffect(() => {
-		if (!isCreating) {
-			dispatch(loadPost(requestServer, params.id));
+		if (isCreating) {
+			setIsLoading(false);
+			return;
 		}
+
+		dispatch(loadPost(requestServer, params.id)).then((postData) => {
+			setIsLoading(false);
+			if (postData.error) {
+				setError(postData.error);
+			}
+		});
 	}, [params.id, requestServer, dispatch, isCreating]);
-	return (
+
+	if (isLoading) {
+		return null;
+	}
+
+	return error ? (
+		<div>{error}</div>
+	) : (
 		<div className={className}>
-			{isCreating || isEditing ? (
-				<PostForm post={isCreating ? initialPostState : post} />
+			{!!isCreating || !!isEditing ? (
+				<Content access={[ROLE.ADMIN]}>
+					<PostForm post={isCreating ? initialPostState : post} />
+				</Content>
 			) : (
 				<>
 					<PostContent post={post} />

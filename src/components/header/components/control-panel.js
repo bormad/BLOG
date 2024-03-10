@@ -60,13 +60,17 @@ const ControlPanelContainer = ({ className }) => {
 					margin='10px 0'
 					onClick={() => navigate(-1)}
 				/>
-				<Link to='/post'>
-					<Icon id='fa-file-text-o' size='24px' margin='10px 15px' />
-				</Link>
+				{roleId === ROLE.ADMIN && (
+					<>
+						<Link to='/post'>
+							<Icon id='fa-file-text-o' size='24px' margin='10px 15px' />
+						</Link>
 
-				<Link to='/users'>
-					<Icon id='fa-users' size='24px' margin='10px 0' />
-				</Link>
+						<Link to='/users'>
+							<Icon id='fa-users' size='24px' margin='10px 0' />
+						</Link>
+					</>
+				)}
 			</RightAligned>
 		</div>
 	);

@@ -3,7 +3,21 @@ import { getPost } from '../api/get-post';
 import { getUsers } from '../api/get-users';
 
 export const fetchPost = async (postId) => {
-	const post = await getPost(postId);
+	let post;
+	let error;
+
+	try {
+		post = await getPost(postId);
+	} catch (postError) {
+		error = postError;
+	}
+
+	if (error) {
+		return {
+			error,
+			res: null
+		};
+	}
 
 	const comments = await getComments(postId);
 

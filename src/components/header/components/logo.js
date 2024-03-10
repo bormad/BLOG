@@ -2,17 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Icon } from './index';
 
-// const IconContainer = ({ className }) => (
-// 	<div className={className}>
-// 		<i className='fa fa-code' aria-hidden='true'></i>
-// 	</div>
-// );
-
-// const Icon = styled(IconContainer)`
-// 	font-size: 70px;
-// 	margin-right: 10px;
-// `;
-
 const LargeText = styled.div`
 	font-size: 48px;
 	font-weight: 600;

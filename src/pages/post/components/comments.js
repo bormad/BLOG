@@ -3,13 +3,16 @@ import React from 'react';
 import { Icon } from '../../../components/header/components';
 import { Comment } from './comment';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserId } from '../../../selectors';
+import { selectUserId, selectUserRole } from '../../../selectors';
 import { useServerRequest } from '../../../hooks';
 import { addCommentAsync } from '../../../actions/add-comment-async';
+import { ROLE } from '../../../bff/constants/role';
+import PropTypes from 'prop-types';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = React.useState('');
 	const userId = useSelector(selectUserId);
+	const roleId = useSelector(selectUserRole);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 
@@ -21,21 +24,26 @@ const CommentsContainer = ({ className, comments, postId }) => {
 	return (
 		<div className={className}>
 			<div className='new-comment'>
-				<textarea
-					name='comment'
-					value={newComment}
-					placeholder='Комментарий...'
-					onChange={({ target }) => {
-						setNewComment(target.value);
-					}}
-				></textarea>
-				<Icon
-					size='20px'
-					id='fa-paper-plane-o'
-					onClick={() => {
-						onNewCommentAdd(postId, userId, newComment);
-					}}
-				/>
+				{[ROLE.ADMIN, ROLE.MODERATOR, ROLE.READER].includes(roleId) && (
+					<>
+						<textarea
+							name='comment'
+							value={newComment}
+							placeholder='Комментарий...'
+							onChange={({ target }) => {
+								setNewComment(target.value);
+							}}
+						></textarea>
+
+						<Icon
+							size='20px'
+							id='fa-paper-plane-o'
+							onClick={() => {
+								onNewCommentAdd(postId, userId, newComment);
+							}}
+						/>
+					</>
+				)}
 			</div>
 			<div className='comments'>
 				{comments.map(({ id, author, content, published_at }) => (
@@ -74,3 +82,8 @@ export const Comments = styled(CommentsContainer)`
 		margin-top: 14px;
 	}
 `;
+
+Comments.propTypes = {
+	comments: PropTypes.array.isRequired,
+	postId: PropTypes.string.isRequired
+};

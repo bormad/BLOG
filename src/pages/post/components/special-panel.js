@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import { Icon } from '../../../components/header/components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../hooks';
 import { CLOSE_MODAL, openModal, removePostAsync } from '../../../actions';
 import { useNavigate } from 'react-router-dom';
+import { ROLE } from '../../../bff/constants/role';
+import { selectUserRole } from '../../../selectors';
+import PropTypes from 'prop-types';
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editBnt }) => {
+	const roleId = useSelector(selectUserRole);
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const navigate = useNavigate();
@@ -31,13 +35,19 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editBnt }) => {
 				{publishedAt ? <Icon id='fa-calendar-o' /> : null}
 				{publishedAt}
 			</div>
-			<div className='btns'>
-				{editBnt}
+			{roleId === ROLE.ADMIN && (
+				<div className='btns'>
+					{editBnt}
 
-				{publishedAt ? (
-					<Icon size='20px' id='fa-trash-o' onClick={() => onPostRemove(id)} />
-				) : null}
-			</div>
+					{publishedAt ? (
+						<Icon
+							size='20px'
+							id='fa-trash-o'
+							onClick={() => onPostRemove(id)}
+						/>
+					) : null}
+				</div>
+			)}
 		</div>
 	);
 };
@@ -58,3 +68,9 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		gap: 8px;
 	}
 `;
+
+SpecialPanel.propTypes = {
+	id: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	editBnt: PropTypes.object
+};

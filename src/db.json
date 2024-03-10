@@ -10,7 +10,7 @@
     {
       "id": "002",
       "login": "vova",
-      "password": "123456",
+      "password": "qwerty123",
       "registed_at": "2050-09-22",
       "role_id": 1
     },
@@ -121,13 +121,6 @@
   ],
   "comments": [
     {
-      "id": "e532",
-      "author_id": "001",
-      "post_id": "002",
-      "published_at": "2058-01-29 09:32",
-      "content": "23123213"
-    },
-    {
       "id": "e78b",
       "author_id": "001",
       "post_id": "002",
@@ -140,13 +133,6 @@
       "post_id": "9135",
       "published_at": "2044-07-16 16:58",
       "content": "321213"
-    },
-    {
-      "id": "705c",
-      "author_id": "001",
-      "post_id": "003",
-      "published_at": "2056-03-18 10:45",
-      "content": "321123"
     },
     {
       "id": "3974",
@@ -168,6 +154,27 @@
       "post_id": "003",
       "published_at": "2038-02-16 04:40",
       "content": "3213213"
+    },
+    {
+      "author_id": "002",
+      "post_id": "002",
+      "published_at": "2040-09-05 07:14",
+      "content": "32123",
+      "id": "GnnYRGr"
+    },
+    {
+      "author_id": "001",
+      "post_id": "002",
+      "published_at": "2037-12-19 16:08",
+      "content": "1212312",
+      "id": "IpehAbK"
+    },
+    {
+      "author_id": "001",
+      "post_id": "002",
+      "published_at": "2057-05-06 22:58",
+      "content": "321321",
+      "id": "th0OOrU"
     }
   ],
   "sessions": [
@@ -247,6 +254,17 @@
         "roleId": 0,
         "password": "qwerty123"
       }
+    },
+    {
+      "hash": "0.35255855853140327660355524130864068865776062011719",
+      "user": {
+        "id": "001",
+        "login": "anton",
+        "registedAt": "2050-09-22",
+        "roleId": 0,
+        "password": "qwerty123"
+      },
+      "id": "aNDO08R"
     }
   ]
 }

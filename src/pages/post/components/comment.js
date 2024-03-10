@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { Icon } from '../../../components/header/components';
 import { removeCommentAsync } from '../../../actions/remove-comment-async';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../hooks';
 import { CLOSE_MODAL, openModal } from '../../../actions';
+import { selectUserRole } from '../../../selectors';
+import { ROLE } from '../../../bff/constants/role';
+import PropTypes from 'prop-types';
 
 const CommentContainer = ({
 	className,
@@ -15,6 +18,7 @@ const CommentContainer = ({
 }) => {
 	const requestServer = useServerRequest();
 	const dispatch = useDispatch();
+	const roleId = useSelector(selectUserRole);
 
 	const onCommentRemove = (idComment) => {
 		dispatch(
@@ -45,7 +49,9 @@ const CommentContainer = ({
 				</div>
 				<div className='comment-text'>{content}</div>
 			</div>
-			<Icon size='20px' id='fa-trash-o' onClick={() => onCommentRemove(id)} />
+			{[ROLE.ADMIN, ROLE.MODERATOR].includes(roleId) && (
+				<Icon size='20px' id='fa-trash-o' onClick={() => onCommentRemove(id)} />
+			)}
 		</div>
 	);
 };
@@ -87,3 +93,11 @@ export const Comment = styled(CommentContainer)`
 		}
 	}
 `;
+
+Comment.propTypes = {
+	id: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	postId: PropTypes.string.isRequired
+};

@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import { Content, H2 } from '../../components';
 import { UserRow } from './components/user-row';
 import { useServerRequest } from '../../hooks';
+import { ROLE } from '../../bff/constants/role';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from '../../selectors';
 
 const UsersContainer = ({ className }) => {
+	const userRole = useSelector(selectUserRole);
 	const [users, setUsers] = React.useState([]);
 	const [roles, setRoles] = React.useState([]);
 	const [errorMessage, setErrorMessage] = React.useState(null);
@@ -12,6 +16,9 @@ const UsersContainer = ({ className }) => {
 	const requestServer = useServerRequest();
 
 	React.useEffect(() => {
+		if (![ROLE.ADMIN].includes(userRole)) {
+			return;
+		}
 		Promise.all([
 			requestServer('fetchUsers'),
 			requestServer('fetchRoles')
@@ -23,7 +30,7 @@ const UsersContainer = ({ className }) => {
 			setUsers(usersRes.res);
 			setRoles(rolesRes.res);
 		});
-	}, [shouldUpdateUserList, requestServer]);
+	}, [shouldUpdateUserList, requestServer, userRole]);
 
 	const onUserRemove = (userId) => {
 		requestServer('removeUser', userId).then(() => {
@@ -33,7 +40,7 @@ const UsersContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-			<Content error={errorMessage}>
+			<Content access={[ROLE.ADMIN]} error={errorMessage}>
 				<H2>Пользователи</H2>
 				<div>
 					<div className='table-header'>

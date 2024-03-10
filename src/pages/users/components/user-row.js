@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from '../../../components/header/components';
 import styled from 'styled-components';
 import { useServerRequest } from '../../../hooks';
+import PropTypes from 'prop-types';
 
 const UserRowContainer = ({
 	id,
@@ -76,3 +77,11 @@ export const UserRow = styled(UserRowContainer)`
 		border: 1px solid #000;
 	}
 `;
+
+UserRow.propTypes = {
+	id: PropTypes.string.isRequired,
+	roles: PropTypes.array.isRequired,
+	login: PropTypes.string.isRequired,
+	registedAt: PropTypes.string.isRequired,
+	onUserRemove: PropTypes.func.isRequired
+};
